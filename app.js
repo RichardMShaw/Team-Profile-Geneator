@@ -13,11 +13,11 @@ const Employee = require("./lib/Employee");
 
 let team = []
 
-addMember(){
+const addMember = () => {
 
 }
 
-createTeam(){
+const createTeam = () => {
   inquirer.prompt([{
     type: 'input',
     name: 'name',
