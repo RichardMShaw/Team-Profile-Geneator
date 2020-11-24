@@ -14,7 +14,15 @@ const Employee = require("./lib/Employee");
 let team = []
 
 const finish = () => {
-  console.log(team)
+  let htmlPage = render(team)
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR)
+  }
+  fs.writeFile(outputPath, htmlPage, err => {
+    if (err) {
+      console.log(err)
+    }
+  })
 }
 
 const addMember = () => {
