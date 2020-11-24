@@ -55,7 +55,7 @@ const addMember = () => {
           {
             type: 'input',
             name: 'github',
-            message: `What is their github number:`
+            message: `What is their github:`
           },
           {
             type: 'list',
