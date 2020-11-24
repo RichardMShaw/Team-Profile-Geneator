@@ -41,13 +41,13 @@ const createTeam = () => {
   {
     type: 'list',
     name: 'addMember',
-    message: `Would you like to add a team member:`
+    message: `Would you like to add a team member:`,
     choices: ['Yes', 'No']
   }
   ])
     .then(({ name, id, email, officeNumber, addMember }) => {
       team.push(new Manager(name, id, email, officeNumber))
-      console.log(addMember)
+      console.log(team[0])
     })
 }
 
