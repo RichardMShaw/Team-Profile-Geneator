@@ -14,7 +14,7 @@ const Employee = require("./lib/Employee");
 let team = []
 
 const finish = () => {
-
+  console.log(team)
 }
 
 const addMember = () => {
@@ -27,8 +27,8 @@ const addMember = () => {
   }])
     .then(({ type }) => {
       role = type
-      if (role == 'Engineer') {
-        inquirer.prompt(
+      if (role === 'Engineer') {
+        inquirer.prompt([
           {
             type: 'input',
             name: 'name',
@@ -54,7 +54,7 @@ const addMember = () => {
             name: 'newMember',
             message: `Would you like to add a team member:`,
             choices: ['Yes', 'No']
-          })
+          }])
           .then(({ name, id, email, github, newMember }) => {
             team.push(new Engineer(name, id, email, github,))
             if (newMember === 'Yes') {
@@ -64,7 +64,7 @@ const addMember = () => {
             }
           })
       } else {
-        inquirer.prompt(
+        inquirer.prompt([
           {
             type: 'input',
             name: 'name',
@@ -90,7 +90,7 @@ const addMember = () => {
             name: 'newMember',
             message: `Would you like to add a team member:`,
             choices: ['Yes', 'No']
-          })
+          }])
           .then(({ name, id, email, school, newMember }) => {
             team.push(new Intern(name, id, email, school,))
             if (newMember === 'Yes') {
@@ -127,7 +127,7 @@ const createTeam = () => {
   },
   {
     type: 'list',
-    name: 'addMember',
+    name: 'newMember',
     message: `Would you like to add a team member:`,
     choices: ['Yes', 'No']
   }
@@ -135,6 +135,9 @@ const createTeam = () => {
     .then(({ name, id, email, officeNumber, newMember }) => {
       team.push(new Manager(name, id, email, officeNumber))
       if (newMember === 'Yes') {
+        console.log(
+          'run'
+        )
         addMember()
       } else {
         finish()
