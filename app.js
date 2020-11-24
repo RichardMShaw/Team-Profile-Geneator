@@ -22,7 +22,7 @@ const addMember = () => {
   inquirer.prompt([{
     type: 'list',
     name: 'type',
-    message: 'Is this employee an Engineer or an Intern:'
+    message: 'Is this employee an Engineer or an Intern:',
     choices: ['Engineer', 'Intern']
   }])
     .then(({ type }) => {
